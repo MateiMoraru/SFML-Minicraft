@@ -1,11 +1,15 @@
 #include <iostream>
 #include <chrono>
+#include <vector>
 #include <SFML/Graphics.hpp>
 
 #include "block.h"
 #include "spritesheet.h"
+#include "environment.h"
+
 #define WIDTH 1200
 #define HEIGHT 800
+#define SPRITE_SIZE 32
 
 int main()
 {
@@ -32,6 +36,10 @@ int main()
     Block block = Block(sf::Vector2f(100, 100), sf::Vector2f(100, 100));
     block.setColor(sf::Color(255, 0, 255));
     block.setSprite(spritesheet.getSprite(0));
+
+    Environment environment = Environment(WIDTH, HEIGHT, SPRITE_SIZE);
+    environment.setSpritesheet(spritesheet);
+    environment.init();
     //------------------------------------------- WINDOW FPS -------------------------------------//
     std::chrono::milliseconds startTime = std::chrono::duration_cast<std::chrono::milliseconds >(
             std::chrono::system_clock::now().time_since_epoch()
@@ -60,6 +68,7 @@ int main()
    
         window.clear(sf::Color(52, 107, 235));
         block.draw(window);
+        environment.draw(window);
         window.draw(TextFps);
         window.display();
     

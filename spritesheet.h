@@ -5,7 +5,12 @@ class Spritesheet
         sf::Sprite sprite;
         std::string path_to_file;
         int spritesNumber, spriteSize;
-                
+
+        Spritesheet()
+        {
+    
+        }
+
         Spritesheet(std::string path, int sprites_number, int sprite_size)
         {
             path_to_file = path;
