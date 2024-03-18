@@ -12,37 +12,11 @@ class Block
         sf::Sprite sprite;
         bool hasSprite = false;
     public:
-        Block(sf::Vector2f pos, sf::Vector2f s)
-        {
-            position = pos;
-            size = s; 
-            block.setPosition(pos.x, pos.y);
-            block.setSize(size);
-        }
-
-        void setColor(sf::Color new_color)
-        {
-            block.setFillColor(new_color);
-            color = new_color;
-        }
-
-        void setSprite(sf::Sprite new_sprite)
-        {
-            hasSprite = true;
-            sprite = new_sprite; 
-            sprite.setPosition(position);
-            sprite.setScale(size.x / sprite.getLocalBounds().width,
-                            size.y / sprite.getLocalBounds().height
-            );
-        }
-
-        void draw(sf::RenderWindow &window)
-        {
-            if(!hasSprite)
-                window.draw(block);
-            else
-                window.draw(sprite);
-        }
+        Block(sf::Vector2f pos, sf::Vector2f s);
+        void setColor(sf::Color new_color);
+        void setSprite(sf::Sprite new_sprite);
+        void draw(sf::RenderWindow &window);
+        sf::Vector2f getPosition();
 };
 
 #endif

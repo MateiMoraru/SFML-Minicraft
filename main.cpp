@@ -39,7 +39,7 @@ int main()
 
     Environment environment = Environment(WIDTH, HEIGHT, SPRITE_SIZE);
     environment.setSpritesheet(spritesheet);
-    environment.init();
+    environment.generateWorldChunks();
     //------------------------------------------- WINDOW FPS -------------------------------------//
     std::chrono::milliseconds startTime = std::chrono::duration_cast<std::chrono::milliseconds >(
             std::chrono::system_clock::now().time_since_epoch()
